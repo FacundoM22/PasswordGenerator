@@ -26,7 +26,7 @@
     <string>Ejecutar</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="txt_Contrasenia">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -36,7 +36,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="txt_Contrasenia2">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -98,7 +98,7 @@
     <string>Contraseña:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="lbl_Contrasenia2">
    <property name="geometry">
     <rect>
      <x>70</x>
