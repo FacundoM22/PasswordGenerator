@@ -49,8 +49,8 @@
   <widget class="QCheckBox" name="chk_Desencriptar">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>80</y>
+     <x>80</x>
+     <y>60</y>
      <width>151</width>
      <height>17</height>
     </rect>
@@ -62,8 +62,8 @@
   <widget class="QCheckBox" name="chk_Validar">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>60</y>
+     <x>80</x>
+     <y>40</y>
      <width>101</width>
      <height>17</height>
     </rect>
@@ -75,8 +75,8 @@
   <widget class="QCheckBox" name="chk_Encriptar">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>100</y>
+     <x>80</x>
+     <y>80</y>
      <width>121</width>
      <height>17</height>
     </rect>
@@ -109,6 +109,36 @@
    </property>
    <property name="text">
     <string>label2</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_Mensaje">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>160</y>
+     <width>291</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTipDuration">
+    <number>-2</number>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

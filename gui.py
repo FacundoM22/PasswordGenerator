@@ -15,7 +15,11 @@ class ejemplo_GUI(QDialog):
         self.chkValidar = self.chk_Validar
         self.chkDesencriptar = self.chk_Desencriptar
         self.chkEncriptar = self.chk_Encriptar
-        
+        self.lblMensaje = self.lbl_Mensaje
+        self.lblMensaje.setWordWrap(True)
+        self.txtContrasenia2.hide()
+        self.lblContrasenia2.hide()
+        self.lblMensaje.hide()
 
         self.btnEjecutar.clicked.connect(lambda: validarContrasenia(self))
 
