@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
-from metods_gui import validarContrasenia
+from metods_gui import btnEjecutar
 
 class ejemplo_GUI(QDialog):
     def __init__(self):
@@ -16,12 +16,16 @@ class ejemplo_GUI(QDialog):
         self.chkDesencriptar = self.chk_Desencriptar
         self.chkEncriptar = self.chk_Encriptar
         self.lblMensaje = self.lbl_Mensaje
+        self.lblSemilla = self.lbl_Semilla
+        self.txtSemilla = self.txt_Semilla
         self.lblMensaje.setWordWrap(True)
         self.txtContrasenia2.hide()
         self.lblContrasenia2.hide()
+        self.lblSemilla.hide()
+        self.txtSemilla.hide()
         self.lblMensaje.hide()
 
-        self.btnEjecutar.clicked.connect(lambda: validarContrasenia(self))
+        self.btnEjecutar.clicked.connect(lambda: btnEjecutar(self))
 
 
 

@@ -2,11 +2,6 @@ from metods_gui import *
 from gui import *
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
-flag = True
-
-userPassword = ""
-
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
