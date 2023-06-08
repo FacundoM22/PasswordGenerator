@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMessageBox
 from constants import *
 from cryptography.fernet import Fernet
+import random
 
 
 
@@ -43,17 +44,19 @@ def validarContrasenia(gui):
                     gui.lblMensaje.show()
                     gui.lblMensaje.setText("Su contraseña debe poseer al menos cuatro numeros.")
                 else:
-                    generarMsgBox()
+                    generarMsgBox(gui)
                     
     
 
-def generarMsgBox():
+def generarMsgBox(gui):
         msg_box = QMessageBox()
         msg_box.setWindowTitle("Password generator")
         msg_box.setText("La contraseña es optima igualmente desea generar una contraseña mas robusta?")
         msg_box.addButton(QMessageBox.No)
         msg_box.addButton(QMessageBox.Ok)
         result = msg_box.exec()
+        if result == QMessageBox.Ok:
+              mejorarContrasenia(gui,gui.txtContrasenia.text())
 
 
 def btnEjecutar(gui):
@@ -64,4 +67,21 @@ def btnEjecutar(gui):
      elif gui.chkDesencriptar.isChecked():
            desencriptarContrasenia(gui)
 
-           
+
+def mejorarContrasenia(gui,password):
+      for num in CARACTERES:
+            print(len(CARACTERES))
+            password += CARACTERES[random.randint(num, len(CARACTERES))-1]
+            gui.txtContrasenia.setText(password)
+      
+
+def comprobarEstado(gui):
+      if gui.chkDesencriptar.isChecked():
+            gui.txtContrasenia2.setEnabled(True)
+            gui.lblContrasenia2.setEnabled(True)
+      else:
+            gui.txtContrasenia2.setEnabled(False)     
+            gui.lblContrasenia2.setEnabled(False)
+
+
+

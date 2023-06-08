@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
-from metods_gui import btnEjecutar
+from metods_gui import btnEjecutar,  comprobarEstado
 
 class ejemplo_GUI(QDialog):
     def __init__(self):
@@ -19,14 +19,14 @@ class ejemplo_GUI(QDialog):
         self.lblSemilla = self.lbl_Semilla
         self.txtSemilla = self.txt_Semilla
         self.lblMensaje.setWordWrap(True)
-        self.txtContrasenia2.hide()
-        self.lblContrasenia2.hide()
+        self.txtContrasenia2.setEnabled(False)
+        self.lblContrasenia2.setEnabled(False)
         self.lblSemilla.hide()
         self.txtSemilla.hide()
         self.lblMensaje.hide()
 
         self.btnEjecutar.clicked.connect(lambda: btnEjecutar(self))
-
+        self.chkDesencriptar.stateChanged.connect(lambda: comprobarEstado(self))
 
 
 
