@@ -15,6 +15,8 @@ def encriptarContrasenia(gui):
             texto_encriptado = texto_encriptado.decode()
             gui.txtContrasenia2.setText(texto_encriptado)
             gui.lblContrasenia2.show()
+            gui.txtContrasenia2.setEnabled(True)
+            gui.lblContrasenia2.setEnabled(True)
             gui.txtContrasenia2.show()
 
 def desencriptarContrasenia(gui):
@@ -29,22 +31,22 @@ def desencriptarContrasenia(gui):
 
 def validarContrasenia(gui):
         password = gui.txtContrasenia.text()
-        if len(password) < 8:
+        lenPassword = len(password)
+        if lenPassword < 8:
                 gui.lblMensaje.show()
-                gui.lblMensaje.setText("Su contraseña debe poseer al menos 8 caracteres.")
-                
+                gui.lblMensaje.setText("Su contraseña debe poseer al menos 8 caracteres.")      
         else:
                 if not EXPRESIONREGULAR.search(password):
                     gui.lblMensaje.show()   
-                    gui.lblMensaje.setText("Su contraseña es demasido debil. No contiene caracteres especiales.")
+                    gui.lblMensaje.setText(MSG_DICT["corta"])
                 elif not MAYUSCULAS.search(password):
                     gui.lblMensaje.show()
-                    gui.lblMensaje.setText("Su contraseña debee poseer al menos una letra en mayuscula.")
+                    gui.lblMensaje.setText(MSG_DICT["letraMayus"])
                 elif not NUMEROS.search(password) or len(NUMEROS.findall(password)) < 4:
                     gui.lblMensaje.show()
-                    gui.lblMensaje.setText("Su contraseña debe poseer al menos cuatro numeros.")
+                    gui.lblMensaje.setText(MSG_DICT["numeros"])
                 else:
-                    generarMsgBox(gui)
+                        generarMsgBox(gui)
                     
     
 
@@ -63,16 +65,17 @@ def btnEjecutar(gui):
      if gui.chkEncriptar.isChecked(): 
            encriptarContrasenia(gui)
      elif gui.chkValidar.isChecked():
+         if len(gui.txtContrasenia.text()) <= 12:  
            validarContrasenia(gui)
      elif gui.chkDesencriptar.isChecked():
-           desencriptarContrasenia(gui)
+            desencriptarContrasenia(gui)
 
 
 def mejorarContrasenia(gui,password):
-      for num in CARACTERES:
-            print(len(CARACTERES))
-            password += CARACTERES[random.randint(num, len(CARACTERES))-1]
-            gui.txtContrasenia.setText(password)
+            for num in CARACTERES:
+                  print(len(CARACTERES))
+                  password += CARACTERES[random.randint(num, LENCARACTERES-1)]
+                  gui.txtContrasenia.setText(password)
       
 
 def comprobarEstado(gui):
