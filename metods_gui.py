@@ -17,15 +17,19 @@ def encriptarContrasenia(gui):
             gui.lblContrasenia2.show()
             gui.txtContrasenia2.setEnabled(True)
             gui.lblContrasenia2.setEnabled(True)
+            gui.txtSemilla.setEnabled(True)
+            gui.lblSemilla.setEnabled(True)
             gui.txtContrasenia2.show()
 
 def desencriptarContrasenia(gui):
-      key = Fernet.generate_key()
+      key = gui.txtSemilla.text()
       objeto_cifrado = Fernet(key)
       password = str.encode(gui.txtContrasenia.text())
       password =  objeto_cifrado.decrypt(password)
-      gui.txtContrasenia2.setText(password)
+      gui.txtContrasenia2.setText(password.decode())
       gui.lblContrasenia.show()
+      gui.txtContrasenia2.setEnabled(True)
+      gui.lblContrasenia2.setEnabled(True)
       gui.txtContrasenia2.show()
 
 
@@ -62,12 +66,12 @@ def generarMsgBox(gui):
 
 
 def btnEjecutar(gui):
-     if gui.chkEncriptar.isChecked(): 
-           encriptarContrasenia(gui)
-     elif gui.chkValidar.isChecked():
-         if len(gui.txtContrasenia.text()) <= 12:  
+     if gui.cbOpciones.currentIndex() == 0:     
+          if len(gui.txtContrasenia.text()) <= 12:    
            validarContrasenia(gui)
-     elif gui.chkDesencriptar.isChecked():
+     elif gui.cbOpciones.currentIndex() == 1:
+           encriptarContrasenia(gui)
+     elif gui.cbOpciones.currentIndex() == 2:
             desencriptarContrasenia(gui)
 
 
@@ -79,12 +83,25 @@ def mejorarContrasenia(gui,password):
       
 
 def comprobarEstado(gui):
-      if gui.chkDesencriptar.isChecked():
-            gui.txtContrasenia2.setEnabled(True)
-            gui.lblContrasenia2.setEnabled(True)
-      else:
-            gui.txtContrasenia2.setEnabled(False)     
-            gui.lblContrasenia2.setEnabled(False)
+      if gui.cbOpciones.currentIndex() == 2:
+            gui.txtSemilla.show()
+            gui.lblSemilla.show()
+            gui.txtSemilla.setEnabled(True)
+            gui.lblSemilla.setEnabled(True)
+      elif gui.cbOpciones.currentIndex() == 1:
+             gui.txtSemilla.hide()
+             gui.lblSemilla.hide()
+             gui.txtContrasenia2.hide()
+             gui.lblContrasenia2.hide()
+      elif gui.cbOpciones.currentIndex() == 0:
+             gui.txtSemilla.hide()
+             gui.lblSemilla.hide()
+             gui.txtContrasenia2.hide()
+             gui.lblContrasenia2.hide()
+
+
+      
+
 
 
 

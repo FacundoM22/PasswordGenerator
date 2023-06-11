@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>PasswordGenerator</string>
   </property>
   <widget class="QPushButton" name="btn_Ejecutar">
    <property name="geometry">
@@ -128,57 +128,15 @@
     <string>Clave semilla:</string>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox">
+  <widget class="QComboBox" name="cb_Opciones">
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>30</y>
-     <width>141</width>
-     <height>91</height>
+     <y>70</y>
+     <width>181</width>
+     <height>21</height>
     </rect>
    </property>
-   <property name="title">
-    <string>Opciones</string>
-   </property>
-   <widget class="QCheckBox" name="chk_Encriptar">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>60</y>
-      <width>121</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ecnriptar contraseña</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="chk_Desencriptar">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>40</y>
-      <width>151</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Desencriptar contraseña</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="chk_Validar">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>20</y>
-      <width>101</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Validar password</string>
-    </property>
-   </widget>
   </widget>
  </widget>
  <resources/>
